@@ -1,0 +1,6 @@
+res://lobby/lobby.tscn::8a6567f406e1a89ac9bc1c5ef4c23c80::1751463674::res://.godot/exported/133200997/export-d9f76d5a970f0c7d748d9d68b2f47ee7-lobby.scn
+res://maps/demo_map.tscn::44625d0f4e994decaf1a58844dbc9bb7::1751741768::res://.godot/exported/133200997/export-2504b4510e6b022c5de937d20cd7c577-demo_map.scn
+res://players/network_player.tscn::0086eea7b1921bc1b159e590747ff20c::1751461887::res://.godot/exported/133200997/export-4796c401bb64c58c177a10ded15ad73d-network_player.scn
+res://players/player.tscn::6bf7c3a0c618127258a0193ac9737635::1751461887::res://.godot/exported/133200997/export-42beae71e6dd8be1222da04ec3fae74d-player.scn
+res://default_env.tres::0b6da940a72dd62d91014609b1d6f2bb::1751741771::res://.godot/exported/133200997/export-7cf3fd67ad9f55210191d77b582b8209-default_env.res
+res://main.tscn::adc3053e324f248b0da947517658d229::1751462400::res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn
