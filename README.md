@@ -4,23 +4,23 @@ Este projeto foi **criado originalmente em 2022** por [ignurof](https://github.c
 
 ---
 
-## 🎮 Adaptação (2025)
+## Adaptação (2025)
 
 Em **2025**, o projeto foi **adaptado por mim (Welson Rodrigues)** para funcionar com a **Godot 4.5 beta 1**, focando no uso **em dispositivos móveis (Android)** com a **Godot Mobile**.
 
 As principais mudanças e avanços incluem:
 
-* ✅ Atualização de toda a lógica para Godot 4.5 (nova API de sinais, nodes 2D)
-* 📱 Suporte completo para **APK Android**, com exportação funcional
-* 🧪 Testes locais utilizando o **Termux** como servidor Node.js
-* ☁️ Implantação do servidor no [Render.com](https://render.com) com WebSocket seguro (`wss://`)
-* 🔁 Sincronização em tempo real de múltiplos jogadores
-* 💬 Sistema de chat multiplayer funcional
-* 🔌 Detecção de desconexão de jogadores com remoção automática
+* Atualização de toda a lógica para Godot 4.5 (nova API de sinais, nodes 2D)
+* Suporte completo para **APK Android**, com exportação funcional
+* Testes locais utilizando o **Termux** como servidor Node.js
+* Implantação do servidor no [Render.com](https://render.com) com WebSocket seguro (`wss://`)
+* Sincronização em tempo real de múltiplos jogadores
+* Sistema de chat multiplayer funcional
+* Detecção de desconexão de jogadores com remoção automática
 
 ---
 
-## 📂 Estrutura
+## Estrutura
 
 ```
 .
@@ -33,7 +33,7 @@ As principais mudanças e avanços incluem:
 
 ---
 
-## 🚀 Como executar
+## Como executar
 
 ### Localmente com Termux:
 
@@ -53,7 +53,7 @@ node server.js
 
 ---
 
-## 📆 Exportando para APK
+## Exportando para APK
 
 Na exportação para Android:
 
@@ -63,13 +63,13 @@ Na exportação para Android:
 
 ---
 
-## 📝 Créditos
+## Créditos
 
 * Projeto original: [ignurof](https://github.com/ignurof)
 * Adaptação para Godot 4.5 Mobile: **Welson Rodrigues (Zee GameDev)**
 
 ---
 
-## 🎩 Vídeo/tutorial
+## Vídeo/tutorial
 
 🎮 Em breve: vídeo completo no meu canal mostrando como adaptar e implantar seu próprio multiplayer mobile com WebSocket!
