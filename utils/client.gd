@@ -24,7 +24,7 @@ func _process(_delta):
 
 func connect_to_server():
 	print("Tentando conectar...")
-	var err = _peer.connect_to_url("wss://servidor-multiplayer-websocket.onrender.com")  #URL final
+	var err = _peer.connect_to_url("coloque_seu_servidor (ou IP do termux)")  #URL do seu servidor online.
 	if err != OK:
 		push_error("Erro ao conectar: %s" % err)
 	else:

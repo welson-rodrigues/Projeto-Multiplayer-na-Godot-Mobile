@@ -13,8 +13,8 @@ size = Vector2(64, 64)
 script = ExtResource("2")
 
 [node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(640.047, 643.453)
-scale = Vector2(20.103, 2.498)
+position = Vector2(710.00006, 643)
+scale = Vector2(22.002718, 2.7284145)
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground"]
 texture = ExtResource("1")
@@ -23,7 +23,7 @@ texture = ExtResource("1")
 shape = SubResource("1")
 
 [node name="Wall" type="StaticBody2D" parent="."]
-position = Vector2(1219, 321)
+position = Vector2(1373, 321)
 scale = Vector2(2, 12.568)
 
 [node name="Sprite2D" type="Sprite2D" parent="Wall"]
@@ -59,7 +59,7 @@ texture_normal = ExtResource("1")
 action = "left"
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="DummyControl"]
-position = Vector2(1034, 440)
+position = Vector2(1169, 445)
 texture_normal = ExtResource("1")
 action = "right"
 
@@ -76,7 +76,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -24.0
-placeholder_text = "Input your text message here"
+placeholder_text = "Digite algo"
 max_length = 140
 expand_to_text_length = true
 
@@ -94,7 +94,7 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/selection_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("2")
-text = "Ignurof: This is a chat message placeholder text...
+text = "CHAT MUITO DOIDO
 ----------------------------------------------------------------------------
 "
 
