@@ -13,3 +13,6 @@ res://managers/game_manager.gd
 res://levels/level_01.gd
 res://levels/level.gd
 res://levels/level2.gd
+res://players/network_player.tscn
+res://utils/client.gd
+res://players/network_player.gd

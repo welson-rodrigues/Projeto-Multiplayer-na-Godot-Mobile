@@ -10,7 +10,7 @@ size = Vector2(36, 36)
 collision_layer = 2
 script = ExtResource("2")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -31.000004)
 scale = Vector2(0.560323, 0.56530046)
 texture = ExtResource("2_qb57l")
@@ -18,3 +18,7 @@ texture = ExtResource("2_qb57l")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -31)
 shape = SubResource("RectangleShape2D_qb57l")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true

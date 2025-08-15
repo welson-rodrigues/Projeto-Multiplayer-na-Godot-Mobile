@@ -7,6 +7,7 @@ signal spawn_network_players
 signal update_position
 signal new_chat_message
 signal player_disconnected  #sinal
+signal update_action
 
 var uuid: String = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 var _peer := WebSocketPeer.new()
@@ -52,5 +53,7 @@ func _handle_incoming_data(data: Dictionary):
 			emit_signal("new_chat_message", data.content)
 		"player_disconnected":  #comando recebido
 			emit_signal("player_disconnected", data.content)
+		"update_action":
+			emit_signal("update_action", data.content)
 		_:
 			push_error("Comando não reconhecido: %s" % data)
