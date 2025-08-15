@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bflvswdqj83bm"]
+[gd_scene load_steps=10 format=3 uid="uid://bflvswdqj83bm"]
 
 [ext_resource type="PackedScene" uid="uid://brndjrek6503t" path="res://lobby/lobby.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://dobk0jx1qg1ms" path="res://managers/game_manager.tscn" id="2_1bvp3"]
 [ext_resource type="Script" uid="uid://drpavi5u6gfbb" path="res://main.gd" id="3"]
-[ext_resource type="PackedScene" uid="uid://ry5b1ta4sixy" path="res://maps/demo_map.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://bvkd61dv1c4my" path="res://levels/level_01.tscn" id="3_lquwl"]
 
 [sub_resource type="FontFile" id="1"]
 cache/0/16/0/ascent = 0.0
@@ -39,7 +40,8 @@ _data = {
 
 [node name="Main" type="Node"]
 script = ExtResource("3")
-map = ExtResource("4")
+game_manager_scene = ExtResource("2_1bvp3")
+first_level_scene = ExtResource("3_lquwl")
 
 [node name="Lobby" parent="." instance=ExtResource("1")]
 grow_horizontal = 2
@@ -71,7 +73,7 @@ offset_top = -28.5
 offset_right = 168.5
 offset_bottom = 28.5
 theme_override_fonts/font = SubResource("1")
-text = "Joining server.."
+text = "Joining server"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
 libraries = {
@@ -79,9 +81,18 @@ libraries = {
 }
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+visible = false
 mesh = SubResource("3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+visible = false
 shape = SubResource("4")
+
+[node name="GameManagerContainer" type="Node" parent="."]
+
+[node name="LevelContainer" type="Node2D" parent="."]
+
+[node name="PlayerList" type="Node2D" parent="."]

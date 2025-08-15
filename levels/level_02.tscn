@@ -1,14 +1,14 @@
-[gd_scene load_steps=13 format=4 uid="uid://ry5b1ta4sixy"]
+[gd_scene load_steps=13 format=4 uid="uid://mp4gxf6lpp2t"]
 
-[ext_resource type="Texture2D" uid="uid://c18x4xjeikfcq" path="res://icon.png" id="1"]
-[ext_resource type="Script" uid="uid://vujq4malo4b8" path="res://maps/demo_map.gd" id="2"]
-[ext_resource type="Script" uid="uid://d4jy7p7dqiti6" path="res://maps/chat.gd" id="3"]
-[ext_resource type="Texture2D" uid="uid://drr8nlo0vkny6" path="res://imagens/chao.jpg" id="4_d46cj"]
-[ext_resource type="Texture2D" uid="uid://cs3s0bf7ua68y" path="res://imagens/Captura de tela de 2025-08-15 11-12-39.png" id="5_o2dya"]
-[ext_resource type="Texture2D" uid="uid://bwm7etb7fr55" path="res://imagens/Screenshot_2025-08-15-12-22-30-643_com.android.chrome.jpg" id="6_igup5"]
+[ext_resource type="Texture2D" uid="uid://bwm7etb7fr55" path="res://imagens/Screenshot_2025-08-15-12-22-30-643_com.android.chrome.jpg" id="1_didps"]
+[ext_resource type="Script" uid="uid://bnlg0qqbnadee" path="res://levels/level2.gd" id="1_gia0r"]
+[ext_resource type="Texture2D" uid="uid://drr8nlo0vkny6" path="res://imagens/chao.jpg" id="2_gia0r"]
+[ext_resource type="Texture2D" uid="uid://cs3s0bf7ua68y" path="res://imagens/Captura de tela de 2025-08-15 11-12-39.png" id="3_mihb8"]
+[ext_resource type="Texture2D" uid="uid://c18x4xjeikfcq" path="res://icon.png" id="4_2owmk"]
+[ext_resource type="Script" uid="uid://d4jy7p7dqiti6" path="res://maps/chat.gd" id="5_cwmx8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vf601"]
-texture = ExtResource("6_igup5")
+texture = ExtResource("1_didps")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1013,7 +1013,7 @@ texture = ExtResource("6_igup5")
 sources/0 = SubResource("TileSetAtlasSource_vf601")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d46cj"]
-texture = ExtResource("4_d46cj")
+texture = ExtResource("2_gia0r")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:0/0/physics_layer_0/polygon_0/one_way = true
@@ -1596,11 +1596,12 @@ size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxFlat" id="2"]
 
-[node name="DemoMap" type="Node2D"]
-script = ExtResource("2")
+[node name="level_02" type="Node2D"]
+script = ExtResource("1_gia0r")
 
 [node name="portal" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AABHAA4AAAANAAkAAABIAA4AAAANAAkAAABJAA4AAAANAAkAAABKAA4AAAANAAkAAABKAA8AAAANAAkAAABKABAAAAANAAkAAABJABAAAAANAAkAAABIABAAAAANAAkAAABHAA8AAAANAAkAAABHABAAAAANAAkAAABJAA8AAAANAAkAAABIAA8AAAANAAkAAAA=")
+visible = false
+tile_map_data = PackedByteArray("AABHAA4AAAANAAkAAABIAA4AAAANAAkAAABJAA4AAAANAAkAAABKAA4AAAANAAkAAABKAA8AAAANAAkAAABKABAAAAANAAkAAABJABAAAAANAAkAAABIABAAAAANAAkAAABIAA8AAAANAAkAAABHAA8AAAANAAkAAABHABAAAAANAAkAAABJAA8AAAANAAkAAAA=")
 tile_set = SubResource("TileSet_xi51f")
 
 [node name="level" type="TileMapLayer" parent="."]
@@ -1612,7 +1613,7 @@ tile_set = SubResource("TileSet_o2dya")
 visible = false
 position = Vector2(722.5, 346.49997)
 scale = Vector2(1.5099268, 1.2905025)
-texture = ExtResource("5_o2dya")
+texture = ExtResource("3_mihb8")
 
 [node name="Ground" type="StaticBody2D" parent="."]
 visible = false
@@ -1620,7 +1621,7 @@ position = Vector2(710, 643)
 scale = Vector2(22.002718, 2.7284145)
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground"]
-texture = ExtResource("1")
+texture = ExtResource("4_2owmk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 shape = SubResource("1")
@@ -1631,7 +1632,7 @@ position = Vector2(1373, 321)
 scale = Vector2(2, 12.568)
 
 [node name="Sprite2D" type="Sprite2D" parent="Wall"]
-texture = ExtResource("1")
+texture = ExtResource("4_2owmk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
 shape = SubResource("1")
@@ -1642,15 +1643,13 @@ position = Vector2(60, 321)
 scale = Vector2(2, 12.568)
 
 [node name="Sprite2D" type="Sprite2D" parent="Wall2"]
-texture = ExtResource("1")
+texture = ExtResource("4_2owmk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
 shape = SubResource("1")
 
 [node name="SpawnPos" type="Marker2D" parent="."]
 position = Vector2(242, 445)
-
-[node name="PlayerList" type="Node2D" parent="."]
 
 [node name="DummyControl" type="Control" parent="."]
 layout_mode = 3
@@ -1661,13 +1660,13 @@ offset_bottom = 775.0
 [node name="TouchScreenButton" type="TouchScreenButton" parent="DummyControl"]
 visible = false
 position = Vector2(178, 445)
-texture_normal = ExtResource("1")
+texture_normal = ExtResource("4_2owmk")
 action = "left"
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="DummyControl"]
 visible = false
 position = Vector2(1169, 445)
-texture_normal = ExtResource("1")
+texture_normal = ExtResource("4_2owmk")
 action = "right"
 
 [node name="Chat" type="Control" parent="."]
@@ -1676,7 +1675,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 384.0
 offset_bottom = 233.0
-script = ExtResource("3")
+script = ExtResource("5_cwmx8")
 
 [node name="LineEdit" type="LineEdit" parent="Chat"]
 layout_mode = 0
@@ -1706,5 +1705,10 @@ text = "CHAT MUITO DOIDO
 ----------------------------------------------------------------------------
 "
 
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(1093, 445)
+texture_normal = ExtResource("4_2owmk")
+
 [connection signal="gui_input" from="DummyControl" to="Chat" method="_on_DummyControl_gui_input"]
 [connection signal="text_submitted" from="Chat/LineEdit" to="Chat" method="_on_LineEdit_text_entered"]
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
