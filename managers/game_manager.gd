@@ -46,9 +46,10 @@ func _spawn_network_player(player: Dictionary) -> void:
 	player_list_node.add_child(np) # Usa a referência direta!
 
 func _on_update_position(content: Dictionary) -> void:
-	for player_node in player_list_node.get_children():
-		if player_node.name == content.uuid:
-			player_node.position = Vector2(content.x, content.y)
+	var player_node = player_list_node.find_child(content.uuid)
+	
+	if player_node:
+		player_node.set_target_position(Vector2(content.x, content.y))
 
 func _on_player_disconnected(content: Dictionary) -> void:
 	for player_node in player_list_node.get_children():
