@@ -1,3 +1,4 @@
 res://default_env.tres
 res://maps/demo_map.tscn
-res://utils/client.gd
+res://players/player.tscn
+res://players/player.gd
