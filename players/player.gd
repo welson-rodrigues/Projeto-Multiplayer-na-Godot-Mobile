@@ -1,4 +1,4 @@
-# player.gd - VERSÃO ATUALIZADA
+# player.gd - Controlado pelo jogador local. Lê o teclado e envia dados.
 
 extends CharacterBody2D
 
@@ -9,12 +9,9 @@ const JUMP_VELOCITY: float = -400.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-
-# Esta nova função é chamada 10x por segundo pelo Timer
+# Esta função é chamada 10x por segundo pelo Timer para enviar a posição
 func _on_timer_timeout():
-	# Enviamos a posição para o servidor em um intervalo fixo para evitar o lag
 	Client.send("position", { "x": position.x, "y": position.y })
-
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -22,15 +19,13 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		# MUDANÇA 1: Avisa ao servidor que pulamos
+		# Avisa ao servidor que pulamos
 		Client.send("action", { "name": "jump" })
 
 	var input_axis = Input.get_axis("left", "right")
 	
 	if input_axis != 0:
 		velocity.x = move_toward(velocity.x, input_axis * MAX_SPEED, ACCELERATION * delta)
-		# MUDANÇA 2: A linha de envio de posição foi REMOVIDA daqui!
-		# Não enviamos mais a cada frame.
 	else:
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
 

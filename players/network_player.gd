@@ -1,34 +1,17 @@
-# network_player.gd - VERSÃO FINAL COM INTERPOLAÇÃO
+# network_player.gd - VERSÃO ATUALIZADA
 
 extends CharacterBody2D
 
-# Onde queremos chegar (recebido da rede)
-var target_position: Vector2
-
-# Quão rápido vamos nos mover em direção ao alvo.
-# Experimente valores entre 5 e 20.
-@export var interpolation_speed: float = 15.0
-
+# Certifique-se de que seu nó de imagem se chama "Sprite2D"
+# ou mude o nome aqui para corresponder.
 @onready var network_player: CharacterBody2D = $"."
 
 
-func _ready():
-	# Quando o jogador de rede é criado, sua posição inicial é o alvo.
-	target_position = position
-
-# Esta função será chamada pelo GameManager para ATUALIZAR O ALVO.
-func set_target_position(new_position: Vector2):
-	target_position = new_position
-
-# O _physics_process agora será usado para o movimento suave.
-func _physics_process(delta: float):
-	# A função lerp (Linear Interpolation) faz a mágica.
-	# Ela calcula um ponto entre a posição atual e o alvo.
-	# A cada frame, nos movemos uma fração do caminho (definida pelo interpolation_speed).
-	position = position.lerp(target_position, delta * interpolation_speed)
-
-# A função de pulo continua a mesma
+# Esta é a função que o GameManager vai chamar
 func jump():
+	# Um tween é uma ferramenta para animar propriedades de forma simples
 	var tween = create_tween()
+	# Anima a posição Y do sprite para cima (-30 pixels) em 0.2 segundos
 	tween.tween_property(network_player, "position:y", -30, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	# Em seguida, anima a posição Y de volta para 0 em 0.3 segundos (a "queda")
 	tween.tween_property(network_player, "position:y", 0, 0.3).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN)

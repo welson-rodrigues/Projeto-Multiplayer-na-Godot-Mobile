@@ -19,19 +19,6 @@ func _ready():
 	Client.connect("spawn_network_players", Callable(self, "_on_spawn_network_players"))
 	Client.connect("update_position", Callable(self, "_on_update_position"))
 	Client.connect("player_disconnected", Callable(self, "_on_player_disconnected"))
-	Client.connect("update_action", Callable(self, "_on_update_action"))
-	
-func _on_update_action(content: Dictionary):
-	# Se a ação não for "jump", ignore por enquanto
-	if content.name != "jump":
-		return
-
-	# Encontra o nó do jogador que enviou a ação
-	var player_node = player_list_node.find_child(content.uuid)
-	
-	# Se o jogador existir, chama a função jump() que criamos nele
-	if player_node:
-		player_node.jump()
 
 func _on_spawn_local_player(player: Dictionary) -> void:
 	var lp: CharacterBody2D = local_player.instantiate()
@@ -46,10 +33,9 @@ func _spawn_network_player(player: Dictionary) -> void:
 	player_list_node.add_child(np) # Usa a referência direta!
 
 func _on_update_position(content: Dictionary) -> void:
-	var player_node = player_list_node.find_child(content.uuid)
-	
-	if player_node:
-		player_node.set_target_position(Vector2(content.x, content.y))
+	for player_node in player_list_node.get_children():
+		if player_node.name == content.uuid:
+			player_node.position = Vector2(content.x, content.y)
 
 func _on_player_disconnected(content: Dictionary) -> void:
 	for player_node in player_list_node.get_children():
