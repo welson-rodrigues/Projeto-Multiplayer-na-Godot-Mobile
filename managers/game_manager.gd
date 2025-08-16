@@ -80,11 +80,12 @@ func reposition_players_for_level(level_node: Node) -> void:
 		lp.set_physics_process(true)
 		print("Nível tutorial carregado! Todos se movem.")
 	else:
+		lp.set_physics_process(true)
 		if local_player_data.role == "prisioneiro":
-			lp.set_physics_process(false)
+			#lp.set_physics_process(false)
 			print("Nível normal carregado! Prisioneiro está preso.")
 		else:
-			lp.set_physics_process(true)
+			#lp.set_physics_process(true)
 			print("Nível normal carregado! Ajudante está livre.")
 
 func _on_update_position(content: Dictionary) -> void:

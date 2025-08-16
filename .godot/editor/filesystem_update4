@@ -1,9 +1,5 @@
 res://default_env.tres
-res://levels/level_01.tscn
-res://levels/level1.gd
-res://utils/client.gd
-res://main.gd
-res://managers/game_manager.gd
-res://levels/level2.gd
-res://levels/level3.gd
+res://levels/level_02.tscn
 res://levels/level_03.tscn
+res://levels/level_01.tscn
+res://managers/game_manager.gd

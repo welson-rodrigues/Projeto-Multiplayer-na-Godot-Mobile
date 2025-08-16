@@ -1,9 +1,9 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1755317425
-default_env.tres::Environment::5737515862867735561::1755316606::0::1::::<><><>0<>0<><>::
+::res://::1755351951
+default_env.tres::Environment::5737515862867735561::1755320464::0::1::::<><><>0<>0<><>::
 icon.png::CompressedTexture2D::6667325268849011704::1755218340::1755218340::1::::<><><>0<>0<>128d812414610a5904345097ef61273c<>res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex::
 LICENSE.md::TextFile::-1::1755218340::0::1::::<><><>0<>0<><>::
-main.gd::GDScript::8383476028390063319::1755313795::0::1::::<>Node<><>0<>0<><>::
+main.gd::GDScript::8383476028390063319::1755319497::0::1::::<>Node<><>0<>0<><>::
 main.tscn::PackedScene::2761381419204744054::1755312159::0::1::::<><><>0<>0<><>::uid://brndjrek6503t::::res://lobby/lobby.tscn<>uid://dobk0jx1qg1ms::::res://managers/game_manager.tscn<>uid://drpavi5u6gfbb::::res://main.gd<>uid://bvkd61dv1c4my::::res://levels/level_01.tscn
 README.md::TextFile::-1::1755218340::0::1::::<><><>0<>0<><>::
 ::res://imagens/::1755291535
@@ -14,19 +14,19 @@ Captura de tela de 2025-08-15 17-58-36.png::CompressedTexture2D::290503383614968
 chao.jpg::CompressedTexture2D::8389594291375397827::1755265816::1755265966::1::::<><><>0<>0<>549ce2b58da076f26976b4c775440d76<>res://.godot/imported/chao.jpg-36d56d417b1d6a52070c44624ef4ef1d.ctex::
 Free-Village-Pixel-Tileset-for-Top-Down-Defense2-720x480.webp::CompressedTexture2D::8633379900329678368::1755266252::1755266267::1::::<><><>0<>0<>174c5f07849b981ceff9cf4f512f8d7e<>res://.godot/imported/Free-Village-Pixel-Tileset-for-Top-Down-Defense2-720x480.webp-0b6be71d7673bff2f47d60914ecde179.ctex::
 Screenshot_2025-08-15-12-22-30-643_com.android.chrome.jpg::CompressedTexture2D::116391143078601574::1755271403::1755271481::1::::<><><>0<>0<>75be3be87f511d141ef2951a9d44e503<>res://.godot/imported/Screenshot_2025-08-15-12-22-30-643_com.android.chrome.jpg-c0d7a37509956cafb13f1d2fbee96592.ctex::
-::res://levels/::1755316134
-level1.gd::GDScript::4025435709686589836::1755314160::0::1::::<>Node2D<><>0<>0<><>::
-level2.gd::GDScript::3321993618239685128::1755314207::0::1::::<>Node2D<><>0<>0<><>::
-level3.gd::GDScript::5053232592177370064::1755314207::0::1::::<>Node2D<><>0<>0<><>::
-level_01.tscn::PackedScene::3881269059452248244::1755316134::0::1::::<><><>0<>0<><>::uid://bxl7lq0lv1p5u::::res://levels/level1.gd<>uid://bwm7etb7fr55::::res://imagens/Screenshot_2025-08-15-12-22-30-643_com.android.chrome.jpg<>uid://drr8nlo0vkny6::::res://imagens/chao.jpg<>uid://cs3s0bf7ua68y::::res://imagens/Captura de tela de 2025-08-15 11-12-39.png<>uid://c18x4xjeikfcq::::res://icon.png<>uid://d4jy7p7dqiti6::::res://maps/chat.gd
+::res://levels/::1755320465
+level1.gd::GDScript::4025435709686589836::1755317789::0::1::::<>Node2D<><>0<>0<><>::
+level2.gd::GDScript::3321993618239685128::1755319573::0::1::::<>Node2D<><>0<>0<><>::
+level3.gd::GDScript::5053232592177370064::1755319585::0::1::::<>Node2D<><>0<>0<><>::
+level_01.tscn::PackedScene::3881269059452248244::1755320062::0::1::::<><><>0<>0<><>::uid://bxl7lq0lv1p5u::::res://levels/level1.gd<>uid://bwm7etb7fr55::::res://imagens/Screenshot_2025-08-15-12-22-30-643_com.android.chrome.jpg<>uid://drr8nlo0vkny6::::res://imagens/chao.jpg<>uid://cs3s0bf7ua68y::::res://imagens/Captura de tela de 2025-08-15 11-12-39.png<>uid://c18x4xjeikfcq::::res://icon.png<>uid://d4jy7p7dqiti6::::res://maps/chat.gd
 level_02.tscn::PackedScene::3334303672398939885::1755314597::0::1::::<><><>0<>0<><>::uid://bwm7etb7fr55::::res://imagens/Screenshot_2025-08-15-12-22-30-643_com.android.chrome.jpg<>uid://bnlg0qqbnadee::::res://levels/level2.gd<>uid://drr8nlo0vkny6::::res://imagens/chao.jpg<>uid://5ovrv51lmo4m::::res://imagens/Captura de tela de 2025-08-15 17-41-10.png<>uid://c18x4xjeikfcq::::res://icon.png<>uid://d4jy7p7dqiti6::::res://maps/chat.gd
-level_03.tscn::PackedScene::875004514705823149::1755292679::0::1::::<><><>0<>0<><>::uid://cd83ac5ryinuu::::res://levels/level3.gd<>uid://bwm7etb7fr55::::res://imagens/Screenshot_2025-08-15-12-22-30-643_com.android.chrome.jpg<>uid://bhnhqof7xd05f::::res://imagens/Captura de tela de 2025-08-15 17-58-36.png<>uid://drr8nlo0vkny6::::res://imagens/chao.jpg<>uid://c18x4xjeikfcq::::res://icon.png<>uid://d4jy7p7dqiti6::::res://maps/chat.gd
+level_03.tscn::PackedScene::875004514705823149::1755320465::0::1::::<><><>0<>0<><>::uid://cd83ac5ryinuu::::res://levels/level3.gd<>uid://bwm7etb7fr55::::res://imagens/Screenshot_2025-08-15-12-22-30-643_com.android.chrome.jpg<>uid://bhnhqof7xd05f::::res://imagens/Captura de tela de 2025-08-15 17-58-36.png<>uid://drr8nlo0vkny6::::res://imagens/chao.jpg<>uid://c18x4xjeikfcq::::res://icon.png<>uid://d4jy7p7dqiti6::::res://maps/chat.gd
 level_base.gd::GDScript::2131653814388329345::1755314103::0::1::::<>Node2D<><>0<>0<><>::
 ::res://lobby/::1755310783
 lobby.gd::GDScript::2410322418796750960::1755310783::0::1::::<>Control<><>0<>0<><>::
 lobby.tscn::PackedScene::3606667059039031887::1755309444::0::1::::<><><>0<>0<><>::uid://baltwm0m1gdrs::::res://lobby/lobby.gd
-::res://managers/::1755314524
-game_manager.gd::GDScript::643010795785137992::1755314524::0::1::::<>Node<><>0<>0<><>::
+::res://managers/::1755320062
+game_manager.gd::GDScript::643010795785137992::1755320062::0::1::::<>Node<><>0<>0<><>::
 game_manager.tscn::PackedScene::8144622563984724930::1755285849::0::1::::<><><>0<>0<><>::uid://jfqj8x60erm3::::res://managers/game_manager.gd
 ::res://maps/::1755281115
 chat.gd::GDScript::9214833107042149915::1755218340::0::1::::<>Control<><>0<>0<><>::
@@ -38,5 +38,5 @@ network_player.gd::GDScript::1194568711485711427::1755312064::0::1::::<>Characte
 network_player.tscn::PackedScene::2785651579148680672::1755288716::0::1::::<><><>0<>0<><>::uid://rawmwg71f5wx::::res://players/network_player.gd<>uid://c18x4xjeikfcq::::res://icon.png
 player.gd::GDScript::11978733370336506::1755288612::0::1::::<>CharacterBody2D<><>0<>0<><>::
 player.tscn::PackedScene::2000403370782348150::1755288612::0::1::::<><><>0<>0<><>::uid://c18x4xjeikfcq::::res://icon.png<>uid://f2j16dnmhao::::res://players/player.gd
-::res://utils/::1755309900
-client.gd::GDScript::7635851581398615330::1755309900::0::1::::<>Node<><>0<>0<><>::
+::res://utils/::1755318075
+client.gd::GDScript::7635851581398615330::1755318075::0::1::::<>Node<><>0<>0<><>::
