@@ -1,3 +1,7 @@
+CollisionShape2D
+Sprite2D
+Area2D
+StaticBody2D
 Marker2D
 Label
 LineEdit

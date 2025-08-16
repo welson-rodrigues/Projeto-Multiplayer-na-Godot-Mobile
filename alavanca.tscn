@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1gtekfiibidt"]
+
+[ext_resource type="Texture2D" uid="uid://dm4gsb5poy8ds" path="res://imagens/1482370.png" id="1_amy3c"]
+[ext_resource type="Script" uid="uid://b0fxledot02l5" path="res://alavanca.gd" id="1_e384o"]
+[ext_resource type="Texture2D" uid="uid://bwm7etb7fr55" path="res://imagens/Screenshot_2025-08-15-12-22-30-643_com.android.chrome.jpg" id="3_o0frn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxeg5"]
+size = Vector2(26, 26)
+
+[node name="Alavanca" type="Area2D"]
+scale = Vector2(5, 5)
+collision_mask = 2
+script = ExtResource("1_e384o")
+textura_ligada = ExtResource("1_amy3c")
+textura_desligada = ExtResource("3_o0frn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_amy3c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fxeg5")

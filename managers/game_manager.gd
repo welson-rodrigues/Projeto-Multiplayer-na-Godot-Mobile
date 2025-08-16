@@ -94,6 +94,14 @@ func _on_update_position(content: Dictionary) -> void:
 		player_node.position = Vector2(content.x, content.y)
 
 func _on_update_action(content: Dictionary) -> void:
-	var player_node = player_list_node.get_node_or_null(content.uuid)
-	if is_instance_valid(player_node) and content.name == "jump":
-		pass
+	# O 'content' vem do outro jogador.
+	# Não precisamos da variável 'player_node' aqui, pois a ação afeta o nível.
+	
+	# Verifica se a ação é para libertar o prisioneiro
+	if content.name == "free_prisoner":
+		# Apenas o prisioneiro deve reagir a este comando para apagar as paredes.
+		# Isso evita que o ajudante apague as paredes do seu próprio jogo sem querer.
+		if local_player_data.role == "prisioneiro":
+			print("Recebido comando para libertar! Apagando as paredes da prisão.")
+			# Este comando encontra todos os nós no grupo e os apaga!
+			get_tree().call_group("ParedesDaPrisao", "queue_free")

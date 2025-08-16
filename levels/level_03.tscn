@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://mp4gxf6lpp2t"]
+[gd_scene load_steps=15 format=4 uid="uid://mp4gxf6lpp2t"]
 
 [ext_resource type="Script" uid="uid://cd83ac5ryinuu" path="res://levels/level3.gd" id="1_wq170"]
 [ext_resource type="Texture2D" uid="uid://bwm7etb7fr55" path="res://imagens/Screenshot_2025-08-15-12-22-30-643_com.android.chrome.jpg" id="2_6hrdw"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://drr8nlo0vkny6" path="res://imagens/chao.jpg" id="3_2wlag"]
 [ext_resource type="Texture2D" uid="uid://c18x4xjeikfcq" path="res://icon.png" id="5_0bj1y"]
 [ext_resource type="Script" uid="uid://d4jy7p7dqiti6" path="res://maps/chat.gd" id="6_6181x"]
+[ext_resource type="PackedScene" uid="uid://d1gtekfiibidt" path="res://alavanca.tscn" id="7_6hrdw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vf601"]
 texture = ExtResource("2_6hrdw")
@@ -1595,6 +1596,8 @@ size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxFlat" id="2"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wq170"]
+
 [node name="level_03" type="Node2D"]
 script = ExtResource("1_wq170")
 
@@ -1712,6 +1715,22 @@ position = Vector2(651, 158)
 
 [node name="PosicaoAjudante" type="Marker2D" parent="."]
 position = Vector2(242, 445)
+
+[node name="ParedeRemovivel_Direita" type="StaticBody2D" parent="." groups=["ParedesDaPrisao"]]
+position = Vector2(722, 103)
+rotation = 1.5707964
+scale = Vector2(9.23981, 0.99210066)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeRemovivel_Direita"]
+shape = SubResource("RectangleShape2D_wq170")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParedeRemovivel_Direita"]
+scale = Vector2(0.063694246, 0.08032123)
+texture = ExtResource("3_2wlag")
+
+[node name="Alavanca" parent="." instance=ExtResource("7_6hrdw")]
+position = Vector2(891, 167)
+scale = Vector2(2, 2)
 
 [connection signal="gui_input" from="DummyControl" to="Chat" method="_on_DummyControl_gui_input"]
 [connection signal="text_submitted" from="Chat/LineEdit" to="Chat" method="_on_LineEdit_text_entered"]
