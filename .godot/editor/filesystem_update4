@@ -6,3 +6,4 @@ res://main.gd
 res://managers/game_manager.gd
 res://levels/level2.gd
 res://levels/level3.gd
+res://levels/level_03.tscn

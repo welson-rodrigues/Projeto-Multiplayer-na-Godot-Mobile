@@ -1707,6 +1707,12 @@ text = "CHAT MUITO DOIDO
 position = Vector2(1093, 445)
 texture_normal = ExtResource("5_0bj1y")
 
+[node name="PosicaoPrisioneiro" type="Marker2D" parent="."]
+position = Vector2(651, 158)
+
+[node name="PosicaoAjudante" type="Marker2D" parent="."]
+position = Vector2(242, 445)
+
 [connection signal="gui_input" from="DummyControl" to="Chat" method="_on_DummyControl_gui_input"]
 [connection signal="text_submitted" from="Chat/LineEdit" to="Chat" method="_on_LineEdit_text_entered"]
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
