@@ -1,53 +1,87 @@
-# game_manager.gd - VERSÃO SIMPLIFICADA
-
+# game_manager.gd (VERSÃO FINAL E COMPLETA)
 extends Node
 
-var local_player = load("res://players/player.tscn")
-var network_player = load("res://players/network_player.tscn")
+var local_player_scene = load("res://players/player.tscn")
+var network_player_scene = load("res://players/network_player.tscn")
 
-# Esta variável vai guardar uma referência DIRETA para a lista de jogadores
 var player_list_node: Node2D
 
-# Esta função será chamada pelo Main para nos dizer onde está a lista
+var local_player_data: Dictionary
+var network_player_data: Dictionary
+
 func set_player_list(p_list: Node2D):
 	player_list_node = p_list
 
-func _ready():
-	# Os connects de sempre
-	Client.connect("spawn_local_player", Callable(self, "_on_spawn_local_player"))
-	Client.connect("spawn_new_player", Callable(self, "_on_spawn_new_player"))
-	Client.connect("spawn_network_players", Callable(self, "_on_spawn_network_players"))
+func _ready() -> void:
 	Client.connect("update_position", Callable(self, "_on_update_position"))
-	Client.connect("player_disconnected", Callable(self, "_on_player_disconnected"))
+	Client.connect("update_action", Callable(self, "_on_update_action"))
 
-func _on_spawn_local_player(player: Dictionary) -> void:
-	var lp: CharacterBody2D = local_player.instantiate()
-	lp.set_name(player.uuid)
-	lp.position = Vector2(player.x, player.y)
-	player_list_node.add_child(lp) # Usa a referência direta!
+func initialize_game(game_data: Dictionary, level_node: Node) -> void:
+	self.local_player_data = game_data.your_data
+	self.network_player_data = game_data.other_player_data
 
-func _spawn_network_player(player: Dictionary) -> void:
-	var np: CharacterBody2D = network_player.instantiate()
-	np.set_name(player.uuid)
-	np.position = Vector2(player.x, player.y)
-	player_list_node.add_child(np) # Usa a referência direta!
+	for child in player_list_node.get_children():
+		child.queue_free()
+
+	var prisoner_marker = level_node.find_child("PosicaoPrisioneiro")
+	var helper_marker = level_node.find_child("PosicaoAjudante")
+
+	if not prisoner_marker or not helper_marker:
+		push_error("ERRO: Não foi possível encontrar os marcadores de posição no nível!")
+		return
+
+	var prisoner_pos = prisoner_marker.global_position
+	var helper_pos = helper_marker.global_position
+	
+	var lp: CharacterBody2D = local_player_scene.instantiate()
+	lp.name = local_player_data.uuid
+	lp.set_meta("role", local_player_data.role)
+	player_list_node.add_child(lp)
+	
+	var np: CharacterBody2D = network_player_scene.instantiate()
+	np.name = network_player_data.uuid
+	np.set_meta("role", network_player_data.role)
+	player_list_node.add_child(np)
+
+	# --- INÍCIO DA LÓGICA DE POSICIONAMENTO E TUTORIAL ---
+
+	# Posiciona o jogador local
+	if local_player_data.role == "prisioneiro":
+		lp.global_position = prisoner_pos
+	else:
+		lp.global_position = helper_pos
+
+	# Posiciona o jogador de rede
+	if network_player_data.role == "prisioneiro":
+		np.global_position = prisoner_pos
+	else:
+		np.global_position = helper_pos
+		
+	# APLICA A REGRA ESPECIAL DO TUTORIAL
+	# (Usando a solução recomendada com a variável 'is_tutorial')
+	if level_node.is_tutorial:
+		# No tutorial, TODOS se movem, independente do papel.
+		lp.set_physics_process(true)
+		print("Nível tutorial! Todos os jogadores podem se mover.")
+	else:
+		# Em outros níveis, a regra normal do prisioneiro se aplica.
+		if local_player_data.role == "prisioneiro":
+			lp.set_physics_process(false)
+			print("Meu papel: Prisioneiro. Estou preso neste nível!")
+		else:
+			# Garante que o ajudante sempre possa se mover
+			lp.set_physics_process(true)
+			print("Meu papel: Ajudante. Estou livre neste nível!")
+	
+	# --- FIM DA LÓGICA DE POSICIONAMENTO E TUTORIAL ---
+
 
 func _on_update_position(content: Dictionary) -> void:
-	for player_node in player_list_node.get_children():
-		if player_node.name == content.uuid:
-			player_node.position = Vector2(content.x, content.y)
+	var player_node = player_list_node.get_node_or_null(content.uuid)
+	if is_instance_valid(player_node):
+		player_node.position = Vector2(content.x, content.y)
 
-func _on_player_disconnected(content: Dictionary) -> void:
-	for player_node in player_list_node.get_children():
-		if player_node.name == content.uuid:
-			player_node.queue_free()
-			print("👋 Jogador saiu:", content.uuid)
-			
-# Funções _on_spawn_new_player e _on_spawn_network_players continuam iguais
-func _on_spawn_new_player(player: Dictionary) -> void:
-	_spawn_network_player(player)
-	
-func _on_spawn_network_players(players: Array) -> void:
-	for player in players:
-		if player.uuid != Client.uuid:
-			_spawn_network_player(player)
+func _on_update_action(content: Dictionary) -> void:
+	var player_node = player_list_node.get_node_or_null(content.uuid)
+	if is_instance_valid(player_node) and content.name == "jump":
+		pass

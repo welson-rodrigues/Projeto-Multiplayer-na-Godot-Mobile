@@ -44,8 +44,40 @@ game_manager_scene = ExtResource("2_1bvp3")
 first_level_scene = ExtResource("3_lquwl")
 
 [node name="Lobby" parent="." instance=ExtResource("1")]
-grow_horizontal = 2
-grow_vertical = 2
+
+[node name="CreateButton" type="Button" parent="Lobby"]
+layout_mode = 0
+offset_left = 559.0
+offset_top = 275.0
+offset_right = 656.0
+offset_bottom = 306.0
+scale = Vector2(1.5677602, 1.8376865)
+text = "CRIAR SALA"
+
+[node name="JoinButton" type="Button" parent="Lobby"]
+layout_mode = 0
+offset_left = 553.0
+offset_top = 365.0
+offset_right = 666.0
+offset_bottom = 396.0
+scale = Vector2(1.5677602, 1.8376865)
+text = "ENTRAR SALA"
+
+[node name="CodeInput" type="LineEdit" parent="Lobby"]
+layout_mode = 0
+offset_left = 596.0
+offset_top = 217.0
+offset_right = 664.5625
+offset_bottom = 248.0
+
+[node name="InfoLabel" type="Label" parent="Lobby"]
+layout_mode = 0
+offset_left = 814.00006
+offset_top = 272.0
+offset_right = 862.00006
+offset_bottom = 295.0
+scale = Vector2(1.9636337, 1.6372685)
+text = "CODE:"
 
 [node name="Transition" type="Control" parent="."]
 visible = false
@@ -96,3 +128,6 @@ shape = SubResource("4")
 [node name="LevelContainer" type="Node2D" parent="."]
 
 [node name="PlayerList" type="Node2D" parent="."]
+
+[connection signal="pressed" from="Lobby/CreateButton" to="Lobby" method="_on_create_button_pressed"]
+[connection signal="pressed" from="Lobby/JoinButton" to="Lobby" method="_on_join_button_pressed"]

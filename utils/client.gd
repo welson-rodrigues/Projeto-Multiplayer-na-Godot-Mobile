@@ -1,59 +1,67 @@
+# client.gd
 extends Node
 
-signal joined_server
-signal spawn_local_player
-signal spawn_new_player
-signal spawn_network_players
+# Sinais de Jogo
+signal game_started(content)
 signal update_position
-signal new_chat_message
-signal player_disconnected  #sinal
 signal update_action
+signal new_chat_message
+signal partner_disconnected(content)
 
-var uuid: String = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+# Sinais de Lobby
+signal room_created(content)
+signal server_error(content)
+
+var uuid: String = ""
 var _peer := WebSocketPeer.new()
 var _connected := false
 
-func _process(_delta):
+func _process(_delta: float) -> void:
 	if _connected:
 		_peer.poll()
-
 		while _peer.get_available_packet_count() > 0:
 			var data = _peer.get_packet().get_string_from_utf8()
 			var parsed_data = JSON.parse_string(data)
 			if typeof(parsed_data) == TYPE_DICTIONARY:
 				_handle_incoming_data(parsed_data)
 
-func connect_to_server():
+func connect_to_server() -> void:
 	print("Tentando conectar...")
-	var err = _peer.connect_to_url("wss://servidor-multiplayer-websocket.onrender.com")  #URL do seu servidor online.
+	var url = "wss://servidor-multiplayer-websocket.onrender.com"
+	var err = _peer.connect_to_url(url)
 	if err != OK:
 		push_error("Erro ao conectar: %s" % err)
 	else:
 		_connected = true
 		print("Conectando...")
 
-func send(cmd: String, content: Dictionary):
+func send(cmd: String, content: Dictionary) -> void:
+	if not _connected or _peer.get_ready_state() != WebSocketPeer.STATE_OPEN:
+		print("Não conectado, não foi possível enviar a mensagem.")
+		return
 	var json = JSON.stringify({ "cmd": cmd, "content": content })
 	_peer.send_text(json)
 
-func _handle_incoming_data(data: Dictionary):
+func _handle_incoming_data(data: Dictionary) -> void:
 	match data.cmd:
-		"joined_server":
+		# Comandos de Lobby
+		"room_created":
 			uuid = data.content.uuid
-			emit_signal("joined_server")
-		"spawn_local_player":
-			emit_signal("spawn_local_player", data.content.player)
-		"spawn_new_player":
-			emit_signal("spawn_new_player", data.content.player)
-		"spawn_network_players":
-			emit_signal("spawn_network_players", data.content.players)
+			emit_signal("room_created", data.content)
+		"error":
+			emit_signal("server_error", data.content)
+		
+		# Comandos de Jogo
+		"game_started":
+			uuid = data.content.your_data.uuid
+			emit_signal("game_started", data.content)
+		"partner_disconnected":
+			emit_signal("partner_disconnected", data.content)
 		"update_position":
 			emit_signal("update_position", data.content)
-		"new_chat_message":
-			emit_signal("new_chat_message", data.content)
-		"player_disconnected":  #comando recebido
-			emit_signal("player_disconnected", data.content)
 		"update_action":
 			emit_signal("update_action", data.content)
+		"new_chat_message":
+			emit_signal("new_chat_message", data.content)
 		_:
-			push_error("Comando não reconhecido: %s" % data)
+			push_error("Comando não reconhecido: %s" % data.cmd)
