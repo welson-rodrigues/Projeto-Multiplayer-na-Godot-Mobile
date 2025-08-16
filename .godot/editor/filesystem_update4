@@ -8,3 +8,7 @@ res://alavanca.gd
 res://portal.tscn
 res://portal.gd
 res://main.gd
+res://players/network_player.tscn
+res://teste_colisao.tscn
+res://teste_colisao.gd
+res://utils/client.gd

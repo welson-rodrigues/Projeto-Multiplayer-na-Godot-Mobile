@@ -1,7 +1,8 @@
 CollisionShape2D
-Sprite2D
-Area2D
 StaticBody2D
+Sprite2D
+MeshInstance2D
+Area2D
 Marker2D
 Label
 LineEdit
@@ -11,4 +12,3 @@ TouchScreenButton
 Node2D
 Node
 TileMapLayer
-Camera2D

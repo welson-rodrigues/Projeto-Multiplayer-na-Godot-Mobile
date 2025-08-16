@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://751la48i1g3w"]
+
+[ext_resource type="PackedScene" uid="uid://3ral7bxvj1vm" path="res://players/player.tscn" id="1_n5ir2"]
+[ext_resource type="Script" uid="uid://c81hfq2otkb3n" path="res://teste_colisao.gd" id="1_tlt27"]
+[ext_resource type="PackedScene" uid="uid://bfxnjllyxbiea" path="res://players/network_player.tscn" id="2_ia6jh"]
+[ext_resource type="PackedScene" uid="uid://cq45x60nvgrfi" path="res://portal.tscn" id="3_tlt27"]
+[ext_resource type="Texture2D" uid="uid://c18x4xjeikfcq" path="res://icon.png" id="4_ia6jh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tlt27"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3y07o"]
+size = Vector2(458, 20)
+
+[node name="teste_colisao" type="Node2D"]
+script = ExtResource("1_tlt27")
+
+[node name="Player" parent="." instance=ExtResource("1_n5ir2")]
+position = Vector2(36, 106)
+
+[node name="NetworkPlayer" parent="." instance=ExtResource("2_ia6jh")]
+position = Vector2(70, 195)
+
+[node name="Portal" parent="." instance=ExtResource("3_tlt27")]
+position = Vector2(169, 128)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(139, 257)
+mesh = SubResource("BoxMesh_tlt27")
+
+[node name="Sprite2D" type="Sprite2D" parent="MeshInstance2D"]
+position = Vector2(157, 12)
+scale = Vector2(9.686126, 0.46129093)
+texture = ExtResource("4_ia6jh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MeshInstance2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeshInstance2D/StaticBody2D"]
+position = Vector2(113, 6)
+shape = SubResource("RectangleShape2D_3y07o")

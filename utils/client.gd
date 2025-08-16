@@ -62,9 +62,10 @@ func _handle_incoming_data(data: Dictionary) -> void:
 			emit_signal("update_position", data.content)
 		"update_action":
 			emit_signal("update_action", data.content)
-		"change_level":
-			emit_signal("level_change_commanded", data.content.level_path)
 		"new_chat_message":
 			emit_signal("new_chat_message", data.content)
+		"change_level":
+			# Enviamos o dicionário 'content' INTEIRO, não apenas o caminho.
+			emit_signal("level_change_commanded", data.content)
 		_:
 			push_error("Comando não reconhecido: %s" % data.cmd)
