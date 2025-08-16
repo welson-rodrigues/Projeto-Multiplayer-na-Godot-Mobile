@@ -1,15 +1,8 @@
 res://default_env.tres
-res://lobby/lobby.tscn
-res://main.tscn
-res://lobby/lobby.gd
+res://levels/level_01.tscn
+res://levels/level1.gd
 res://utils/client.gd
 res://main.gd
 res://managers/game_manager.gd
-res://players/network_player.gd
-res://levels/level_01.tscn
-res://level_base.gd
-res://levels/level1.gd
-res://levels/level_base.gd
 res://levels/level2.gd
 res://levels/level3.gd
-res://levels/level_02.tscn

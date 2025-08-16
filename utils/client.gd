@@ -7,6 +7,7 @@ signal update_position
 signal update_action
 signal new_chat_message
 signal partner_disconnected(content)
+signal level_change_commanded(level_path)
 
 # Sinais de Lobby
 signal room_created(content)
@@ -61,6 +62,8 @@ func _handle_incoming_data(data: Dictionary) -> void:
 			emit_signal("update_position", data.content)
 		"update_action":
 			emit_signal("update_action", data.content)
+		"change_level":
+			emit_signal("level_change_commanded", data.content.level_path)
 		"new_chat_message":
 			emit_signal("new_chat_message", data.content)
 		_:
