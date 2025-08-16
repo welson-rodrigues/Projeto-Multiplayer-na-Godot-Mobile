@@ -5,3 +5,5 @@ res://levels/level_01.tscn
 res://managers/game_manager.gd
 res://alavanca.tscn
 res://alavanca.gd
+res://portal.tscn
+res://portal.gd

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq45x60nvgrfi"]
+
+[ext_resource type="Texture2D" uid="uid://bwm7etb7fr55" path="res://imagens/Screenshot_2025-08-15-12-22-30-643_com.android.chrome.jpg" id="1_0r486"]
+[ext_resource type="Script" uid="uid://bqnd4fkhjtw5d" path="res://portal.gd" id="1_ef3v5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gci8f"]
+size = Vector2(122, 87)
+
+[node name="Portal" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_ef3v5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_0r486")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_gci8f")
